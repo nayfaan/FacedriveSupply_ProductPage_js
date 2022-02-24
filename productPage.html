@@ -2,7 +2,15 @@
     //Unit price calculation
     var prices = document.querySelectorAll("div.elementor-product-price-block-yes .price bdi");
     var price = parseFloat(prices[prices.length-1].innerHTML.replace(/<.+>/,""));
-    var units = Number(document.getElementById("unitAmount").innerHTML);
-    var per = price / units;
-    document.getElementById("unitPrice").innerHTML = per.toFixed(2);
+    if (document.getElementById("unitAmount") !== null){
+        var units = Number(document.getElementById("unitAmount").innerHTML);
+        var per = price / units;
+        document.getElementById("unitPrice").innerHTML = per.toFixed(2);
+    }
+    //Fresh shop weight adjustment notice
+    var freshShopWeightAdjustmentNotice = document.querySelectorAll(".freshShopWeightAdjustmentNotice");
+    console.log(freshShopWeightAdjustmentNotice);
+    for (let i = 0; i < freshShopWeightAdjustmentNotice.length; i++){
+        freshShopWeightAdjustmentNotice[i].innerHTML = '<span style="font-size: 0.8em; color: #7a7a7a;">*Actual weight may vary. Estimated price is approximate. Final price depends on the actual weight of your item.</span>';
+    }
 </script>
